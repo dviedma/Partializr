@@ -1,4 +1,5 @@
 Partializr v1.0.0
+Demo -> http://thepolarway.com/partializr/demo/
 
 Partializr works as a client side (Javascript) alternative to the popular
 Apache Server Side Include (SSI). The objective is having all the benefits
@@ -16,5 +17,5 @@ Considerations for this v1.0.0
 - Partial files should be contained inside of a folder named "partials"
 - Partials folder is a direct sibling of the HTML files we want to process
 
-Author       Daniel Viedma
-Mail			daniel.viedma@rokkan.com
+Author  Daniel Viedma
+Mail    daniel.viedma@rokkan.com
