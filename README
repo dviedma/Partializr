@@ -1,4 +1,5 @@
 Partializr v1.0.0
+Demo -> http://thepolarway.com/partializr/demo/
 
 Partializr works as a client side (Javascript) alternative to the popular
 Apache Server Side Include (SSI). The objective is having all the benefits
