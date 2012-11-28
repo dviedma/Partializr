@@ -1,0 +1,20 @@
+Partializr v1.0.0
+
+Partializr works as a client side (Javascript) alternative to the popular
+Apache Server Side Include (SSI). The objective is having all the benefits
+of the SSI (being able to use "partials" in your HTML code, keeping your code DRY)
+without having to tweak or configure (or even have) an Apache server, as it all happens
+on the client side.
+
+Usage: to start using Partializr you just need to include this file in the head
+of you HTML page. Notation for the "includes" (partials) is exactly the same as
+the one used by Apache: <!--#include virtual="..." -->
+
+Considerations for this v1.0.0
+- No nested partials (partials inside of partials)
+- Partials don't take parameters
+- Partial files should be contained inside of a folder named "partials"
+- Partials folder is a direct sibling of the HTML files we want to process
+
+Author       Daniel Viedma
+Mail			daniel.viedma@rokkan.com
