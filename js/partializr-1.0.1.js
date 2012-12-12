@@ -1,5 +1,5 @@
 /*!
- * Partializr v1.0.0
+ * Partializr v1.0.1
  */
 
 /*
