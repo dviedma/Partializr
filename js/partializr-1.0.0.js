@@ -35,7 +35,7 @@ $(document).ready(function() {
 		replacePartials = (function () {
 			var partials = {},
 			reg = new RegExp(
-				"<!--#include\\s+virtual=\"[\\/]?(partials\\/)?(.*?)\\.html\"\\s+-->",
+				"<!--#include\\s+virtual=\"[\\/]?(partials\\/)?(.*?)\\.html[\?]?(.*?)\"\\s+-->",
 				"gi");
 
 			var result = reg.exec(bodyHTML);
@@ -43,12 +43,32 @@ $(document).ready(function() {
 
 			function loadPartial(){
 				var match = result[0],
-				partial = result[2];
+				partial = result[2],
+				queryString = result[3];
+
+				//Process parameters
+				var paramPairs = queryString.split('&');
+				var paramNames = {};
+				$.each(paramPairs, function(index, value) {
+					var aux = value.split('=');
+					paramNames[aux[0]] = aux[1];
+				});
 
 				//dynamically-created DOM nodes to handle the load result
 				$('<div id="#ajax' + partial + '" />').appendTo('body').load('partials/' + partial + '.html', function(data){
-					partials[partial] = data;
-					bodyHTML = bodyHTML.replace(match, data);
+
+					//Process parameters
+					var partialHtml = data;
+					var paramReg = new RegExp(
+						"<!--#echo\\s+var=\"(.*?)\"\\s+-->",
+						"gi");
+					var paramResult;
+					while ((paramResult = paramReg.exec(data)) !== null) {
+						partialHtml = partialHtml.replace( paramResult[0], paramNames[paramResult[1]] );
+					}
+
+					partials[partial] = partialHtml;
+					bodyHTML = bodyHTML.replace(match, partialHtml);
 					getNextPartial();						//make the iteration sync with async load request (sequential)
 				});
 			}
