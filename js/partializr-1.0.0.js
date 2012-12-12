@@ -45,7 +45,7 @@ $(document).ready(function() {
 				var match = result[0],
 				partial = result[2];
 
-				//dynamically creted DOM nodes to handle the load result
+				//dynamically-created DOM nodes to handle the load result
 				$('<div id="#ajax' + partial + '" />').appendTo('body').load('partials/' + partial + '.html', function(data){
 					partials[partial] = data;
 					bodyHTML = bodyHTML.replace(match, data);
@@ -65,7 +65,7 @@ $(document).ready(function() {
 		})();
 
 		Partializr._version = version;
-		Partializr.partials = replacePartials;	//Oject that contains [partial_name: partial_content]
+		Partializr.partials = replacePartials;	//Object that contains [partial_name: partial_content]
 
 		return Partializr;
 
