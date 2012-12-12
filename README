@@ -11,9 +11,12 @@ Usage: to start using Partializr you just need to include this file in the head
 of you HTML page. Notation for the "includes" (partials) is exactly the same as
 the one used by Apache: <!--#include virtual="..." -->
 
-Considerations for this v1.0.0
+Support for partials added:
+1. Call virtual include like: <!--#include virtual="partials/_header.html?param1=hello&param2=goodbye" -->
+2. Output the value of the parameter in the partial like: <!--#echo var="param1" -->
+
+Considerations for this v1.0.1
 - No nested partials (partials inside of partials)
-- Partials don't take parameters
 - Partial files should be contained inside of a folder named "partials"
 - Partials folder is a direct sibling of the HTML files we want to process
 
