@@ -26,7 +26,7 @@
  * Mail			daniel.viedma@rokkan.com
  */
 
-$(document).ready(function() {
+$(function() {
 	window.Partializr = (function (document) {
 
 		var version = '1.0.0',
